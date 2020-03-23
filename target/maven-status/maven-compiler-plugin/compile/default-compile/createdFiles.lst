@@ -1,0 +1,12 @@
+at\htl\quickstart\rest\CrewMemberEndpoint$1.class
+at\htl\quickstart\business\InitBean.class
+at\htl\quickstart\rest\MovieEndpoint$1.class
+at\htl\quickstart\rest\RestConfig.class
+at\htl\quickstart\model\CrewMember.class
+at\htl\quickstart\model\Movie.class
+at\htl\quickstart\model\Rating.class
+at\htl\quickstart\business\CrewMemberRepository.class
+at\htl\quickstart\business\RatingRepository.class
+at\htl\quickstart\rest\CrewMemberEndpoint.class
+at\htl\quickstart\business\MovieRepository.class
+at\htl\quickstart\rest\MovieEndpoint.class
