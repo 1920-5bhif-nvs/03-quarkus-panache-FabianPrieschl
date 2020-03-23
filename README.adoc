@@ -1,0 +1,55 @@
+:imagesdir: images
+:toc:
+== Description
+This project is used to manage movies and the respective crew members and ratings.
+
+== CLD
+image::CLD.png[]
+
+== ERD
+image::ERD.png[]
+
+== Database
+=== Dependency
+`<dependency>` +
+`<groupId>io.quarkus</groupId>` +
+`<artifactId>quarkus-jdbc-postgresql</artifactId>` +
+`</dependency>`
+
+=== Creating/Starting the Postgres database
+`docker run --name some-postgres -p 5432:5432 -e POSTGRES_PASSWORD=passme -d postgres`
+
+=== Edit config file
+`quarkus.datasource.url=jdbc:postgresql://localhost/postgres` +
+`quarkus.datasource.driver=org.postgresql.Driver +
+`quarkus.datasource.username=postgres` +
+`quarkus.datasource.password=passme` +
+`quarkus.hibernate-orm.database.generation=drop-and-create`
+
+== Running
+=== DevMode
+`mvnw compile quarkus:dev`
+
+== Swagger
+=== Dependency
+`<dependency>` +
+`<groupId>io.quarkus</groupId>` +
+`<artifactId>quarkus-smallrye-openapi</artifactId>` +
+`</dependency>`
+
+=== User Interface
+`localhost:8080/swagger-ui`
+
+== Panache vs. Hibernate
+=== Benefits of Panache
+* less boilerplate code
+* easier for beginners
+* usage of really simple PanacheEntity if the project only needs some basic CRUD operations
+* a lot useful operations
+** e.g. `movieRepository.listAll()`
+* it is still possible to construct JPQL-Queries
+** e.g. `movieRepository.find("select m from Movie m")`
+
+=== Disadvantages
+* sparse documentation
+* fixing issues can be quite frustrating because of the lack of documentation and examples online
