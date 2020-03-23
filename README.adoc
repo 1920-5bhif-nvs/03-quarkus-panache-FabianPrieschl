@@ -58,21 +58,21 @@ image::ERD.png[]
 
 Add the following to an entity class. e.g. Movie
 
-`@XmlRootElement`
-`@Entity(name = "Movie")`
-`@NamedEntityGraph(`
-`        name = "movie-entity-graph",`
-`        attributeNodes = {`
-`                @NamedAttributeNode("title"),`
-`                @NamedAttributeNode("genre")`
-`        }
+`@XmlRootElement` +
+`@Entity(name = "Movie")` +
+`@NamedEntityGraph(` +
+`        name = "movie-entity-graph",` +
+`        attributeNodes = {` +
+`                @NamedAttributeNode("title"),` +
+`                @NamedAttributeNode("genre")` +
+`        }` +
 `)`
 
 Then the entity graph can be used in the respective repository:
 
-`public Movie getById(long id) {`
-`        EntityGraph eg = em.getEntityGraph("source-entity-graph");`
-`        HashMap<String, Object> properties = new HashMap<>();`
-`        properties.put("javax.persistence.fetchgraph", eg);`
-`        return em.find(Movie.class, id, properties);`
+`public Movie getById(long id) {` +
+`        EntityGraph eg = em.getEntityGraph("source-entity-graph");` +
+`        HashMap<String, Object> properties = new HashMap<>();` +
+`        properties.put("javax.persistence.fetchgraph", eg);` +
+`        return em.find(Movie.class, id, properties);` +
 `}`
